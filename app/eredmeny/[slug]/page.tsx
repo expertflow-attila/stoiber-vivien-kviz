@@ -63,7 +63,7 @@ export default async function ResultPage({
       <Container width="default">
         <ServiceBlock audience={audience} />
         <div className="divider-fade-soft" />
-        <MagnetBlock magnet={magnet} audienceSlug={slug} />
+        <MagnetBlock magnet={magnet} />
         <div className="divider-fade-soft" />
         <ArticleBlock articles={articles} />
 

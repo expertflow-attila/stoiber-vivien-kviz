@@ -1,44 +1,7 @@
-"use client";
-
-import { useState } from "react";
-import type { AudienceSlug } from "@/content/audiences";
 import type { Magnet } from "@/content/magnets";
 import { Arrow } from "@/components/ui/Arrow";
 
-export function MagnetBlock({
-  magnet,
-  audienceSlug,
-}: {
-  magnet: Magnet;
-  audienceSlug: AudienceSlug;
-}) {
-  const [email, setEmail] = useState("");
-  const [state, setState] = useState<"idle" | "submitting" | "ok" | "error">(
-    "idle",
-  );
-  const [errMsg, setErrMsg] = useState("");
-
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || state === "submitting") return;
-    setState("submitting");
-    try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, audience: audienceSlug }),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.error ?? "Sajnos most nem sikerült. Próbáld újra később.");
-      }
-      setState("ok");
-    } catch (err) {
-      setState("error");
-      setErrMsg(err instanceof Error ? err.message : "Hiba történt.");
-    }
-  };
-
+export function MagnetBlock({ magnet }: { magnet: Magnet }) {
   return (
     <section className="py-section-sm">
       <div className="flex flex-col gap-7">
@@ -83,7 +46,7 @@ export function MagnetBlock({
                   {magnet.hook}
                 </p>
                 <p className="text-xs uppercase tracking-[0.18em] text-ink-500">
-                  PDF · {magnet.readTime} olvasás
+                  PDF · {magnet.readTime} olvasás · ingyenes
                 </p>
               </div>
 
@@ -96,57 +59,15 @@ export function MagnetBlock({
                   Letöltöm a PDF-et
                   <Arrow className="h-3 w-4" />
                 </a>
+                <a
+                  href={`/magnetek/${magnet.slug}.pdf`}
+                  target="_blank"
+                  rel="noopener"
+                  className="hover-cta inline-flex items-center gap-2 text-sm text-sage-700 hover:text-sage-800 underline-offset-4 hover:underline"
+                >
+                  Megnyitom új lapon
+                </a>
               </div>
-
-              {/* Opcionális email feliratkozás */}
-              <details className="group rounded-[10px] border border-dashed border-cream-300 px-4 py-3 open:bg-cream-50">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm text-ink-700">
-                  <span>
-                    Küldjünk még hasonló útmutatókat, ha lesz?{" "}
-                    <span className="text-ink-500">(opcionális)</span>
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="text-sage-700 transition-transform duration-300 group-open:rotate-45"
-                  >
-                    +
-                  </span>
-                </summary>
-                {state === "ok" ? (
-                  <p className="mt-3 text-sm text-sage-800">
-                    Köszönöm — sikerült. Várlak a leveleimben.
-                  </p>
-                ) : (
-                  <form
-                    onSubmit={onSubmit}
-                    className="mt-3 flex flex-col gap-3 sm:flex-row"
-                  >
-                    <label htmlFor="magnet-email" className="sr-only">
-                      Email-címed
-                    </label>
-                    <input
-                      id="magnet-email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      placeholder="te@pelda.hu"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="form-focus flex-1 rounded-[8px] border border-cream-300 bg-cream-50 px-4 py-2.5 text-sm placeholder:text-ink-300"
-                    />
-                    <button
-                      type="submit"
-                      disabled={state === "submitting"}
-                      className="hover-cta inline-flex items-center justify-center gap-2 rounded-[8px] bg-sage-700 px-5 py-2.5 text-sm font-medium text-cream-50 hover:bg-sage-800 disabled:opacity-60"
-                    >
-                      {state === "submitting" ? "Küldöm…" : "Feliratkozom"}
-                    </button>
-                  </form>
-                )}
-                {state === "error" ? (
-                  <p className="mt-2 text-sm text-rose-500">{errMsg}</p>
-                ) : null}
-              </details>
             </div>
           </div>
         </div>

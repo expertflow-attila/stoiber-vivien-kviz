@@ -8,7 +8,8 @@ intézmények / cégek), és a látogatót a megfelelő szolgáltatási oldalra
 irányítja a demenciarolerthetoen.hu-n — közben azonnal letölthető lead
 magnetet és 3 mély cikket is ajánl.
 
-- **Stack**: Next.js 16 (App Router, Turbopack), React 19, Tailwind v4, Motion, Zod, MailerLite.
+- **Stack**: Next.js 16 (App Router, Turbopack), React 19, Tailwind v4, Motion.
+- **Email-gate nincs** — a magnet azonnali letöltés, semmilyen mezőt nem kérünk be. A cél a helyben átadott érték + szolgáltatási oldalra irányítás.
 - **Sister sites**: [vivien-site](https://stoiber-vivien-weboldal.vercel.app), [hub-app], [2.0], [app].
 - **Brand-tokens**: 1:1 a vivien-site `globals.css` `@theme` blokkjából.
 
@@ -35,7 +36,6 @@ npm start
 | `/eredmeny/hozzatartozo` | Hozzátartozói result page |
 | `/eredmeny/intezmeny` | Intézményi result page |
 | `/eredmeny/ceg` | Céges result page |
-| `/api/subscribe` | Opcionális MailerLite feliratkozás (audience-tagga) |
 
 ## Tartalom
 
