@@ -1,0 +1,297 @@
+@import "tailwindcss";
+
+/* ============================================================
+   "A demenciáról érthetően" — Stoiber Vivien brand tokens
+   1:1 leképezés a vivien-site (demenciarolerthetoen.hu) brand-jéből.
+   Itt a kvíz-app-specifikus szűkített készlet.
+   ============================================================ */
+
+@theme {
+  /* Warm cream paper palette */
+  --color-cream-50: #fffaf1;
+  --color-cream-100: #f3eddf;
+  --color-cream-200: #e6dcc5;
+  --color-cream-300: #d4c5a6;
+
+  /* Sage primary */
+  --color-sage-300: #b6c39c;
+  --color-sage-400: #9aaa7c;
+  --color-sage-500: #80926a;
+  --color-sage-600: #6c7e58;
+  --color-sage-700: #586848;
+  --color-sage-800: #424f36;
+  --color-sage-900: #2f3a26;
+
+  /* Warm ink */
+  --color-ink-900: #2f2a22;
+  --color-ink-700: #4a4439;
+  --color-ink-500: #6e6657;
+  --color-ink-300: #a39c89;
+
+  /* Rare accent */
+  --color-rose-300: #d6afa0;
+  --color-rose-500: #b27d6a;
+
+  /* Semantic aliases */
+  --color-background: var(--color-cream-100);
+  --color-foreground: var(--color-ink-900);
+  --color-paper: var(--color-cream-50);
+  --color-border: var(--color-cream-200);
+  --color-muted: var(--color-ink-500);
+  --color-accent: var(--color-sage-600);
+
+  --font-display: var(--font-cormorant), "EB Garamond", Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-pill: 999px;
+
+  --shadow-paper: 0 1px 2px rgba(60, 50, 30, 0.04), 0 8px 24px rgba(60, 50, 30, 0.06);
+  --shadow-lift: 0 2px 4px rgba(60, 50, 30, 0.05), 0 16px 40px rgba(60, 50, 30, 0.09);
+  --shadow-deep: 0 4px 10px rgba(60, 50, 30, 0.08), 0 24px 60px rgba(60, 50, 30, 0.12);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-soft: cubic-bezier(0.45, 0, 0.15, 1);
+
+  --dur-snap: 360ms;
+  --dur-smooth: 620ms;
+  --dur-luxe: 860ms;
+}
+
+@layer base {
+  html {
+    background: var(--color-cream-100);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    line-height: 1.65;
+    font-feature-settings: "ss01", "cv11";
+    overflow-x: clip;
+    background: var(--color-cream-100);
+    min-height: 100dvh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: 0;
+    color: var(--color-ink-900);
+    font-feature-settings: "liga" 1, "dlig" 1, "calt" 1;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+
+  ::selection {
+    background: var(--color-sage-300);
+    color: var(--color-sage-900);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sage-600);
+    outline-offset: 3px;
+    border-radius: var(--radius-xs);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  input, textarea, select, button {
+    font: inherit;
+    color: inherit;
+  }
+}
+
+@layer utilities {
+  .label-eyebrow {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-sage-800);
+  }
+  @media (min-width: 768px) {
+    .label-eyebrow { letter-spacing: 0.22em; }
+  }
+
+  .serif-italic {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-feature-settings: "liga" 1, "dlig" 1, "calt" 1;
+  }
+
+  .container-prose { max-width: 64ch; }
+
+  .text-display-2xl {
+    font-size: clamp(2.5rem, 6.5vw, 5.75rem);
+    line-height: 1.04;
+    font-family: var(--font-display);
+  }
+  .text-display-xl {
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    line-height: 1.06;
+    font-family: var(--font-display);
+  }
+  .text-display-lg {
+    font-size: clamp(1.75rem, 3.2vw, 3rem);
+    line-height: 1.1;
+    font-family: var(--font-display);
+  }
+  .text-display-md {
+    font-size: clamp(1.375rem, 2.2vw, 2rem);
+    line-height: 1.15;
+    font-family: var(--font-display);
+  }
+  .text-body-lg {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .py-section {
+    padding-block: clamp(4rem, 9vw, 8rem);
+  }
+  .py-section-sm {
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .card-paper {
+    background: var(--color-cream-50);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-paper);
+  }
+
+  .premium-page {
+    position: relative;
+    isolation: isolate;
+    overflow-x: clip;
+    background:
+      linear-gradient(180deg, rgba(255, 250, 241, 0.86), rgba(243, 237, 223, 0.98)),
+      var(--color-cream-100);
+  }
+
+  .hover-card {
+    transition-property: background-color, color, border-color, transform, box-shadow, opacity;
+    transition-duration: var(--dur-luxe);
+    transition-timing-function: var(--ease-out-soft);
+    transform: translate3d(0, 0, 0);
+  }
+  .hover-card:hover {
+    transform: translate3d(0, -2px, 0);
+    border-color: color-mix(in srgb, var(--color-sage-400) 42%, var(--color-cream-200));
+    box-shadow: var(--shadow-lift);
+  }
+
+  .hover-cta {
+    transition-property: background-color, color, border-color, transform, box-shadow;
+    transition-duration: var(--dur-smooth);
+    transition-timing-function: var(--ease-out-soft);
+  }
+  .hover-cta:hover {
+    transform: translate3d(0, -1px, 0);
+  }
+  .hover-cta svg,
+  .hover-card svg {
+    transition: transform var(--dur-luxe) var(--ease-out-soft),
+                opacity var(--dur-smooth) var(--ease-out-soft);
+  }
+  .hover-cta:hover svg,
+  .hover-card:hover svg {
+    transform: translate3d(2px, -1px, 0);
+  }
+
+  .divider-fade-soft {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(168, 152, 122, 0.35) 50%,
+      transparent 100%
+    );
+  }
+
+  @keyframes eyebrow-draw-in {
+    0% { letter-spacing: 0.30em; opacity: 0; transform: translate3d(0, 4px, 0); }
+    60% { opacity: 1; }
+    100% { letter-spacing: 0.22em; opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  .eyebrow-draw {
+    animation: eyebrow-draw-in 900ms var(--ease-out-soft) both;
+    animation-delay: 80ms;
+  }
+
+  @keyframes divider-sweep {
+    0% { transform: scaleX(0); opacity: 0; }
+    100% { transform: scaleX(1); opacity: 1; }
+  }
+  .divider-sweep {
+    transform-origin: left center;
+    animation: divider-sweep 1100ms var(--ease-out-soft) both;
+    animation-delay: 240ms;
+  }
+
+  .form-focus {
+    transition:
+      border-color var(--dur-smooth) var(--ease-out-soft),
+      box-shadow var(--dur-smooth) var(--ease-out-soft);
+  }
+  .form-focus:focus,
+  .form-focus:focus-visible {
+    border-color: var(--color-sage-600);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-sage-300) 30%, transparent);
+    outline: none;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 1000;
+    background: var(--color-sage-800);
+    color: var(--color-cream-50);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 0 var(--radius-md) 0;
+    font-weight: 500;
+  }
+  .skip-link:focus { left: 0; }
+}
+
+/* Auto scroll-reveal (Motion-driven; reduced-motion respected globally above) */
+@media (prefers-reduced-motion: no-preference) {
+  :where(.auto-scroll-reveal) {
+    opacity: 1;
+    transform: translate3d(0, var(--auto-reveal-y, 18px), 0);
+    transition: transform 1080ms cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 1080ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--auto-reveal-delay, 0ms);
+    will-change: transform;
+  }
+  :where(.auto-scroll-reveal.is-visible) {
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(.auto-scroll-reveal) {
+    transform: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,54 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
+import { audienceOrder, audiences } from "@/content/audiences";
+import { QuizCard } from "./QuizCard";
+
+export function QuizBoard() {
+  const reduce = useReducedMotion();
+
+  return (
+    <div className="flex flex-col gap-10 sm:gap-14">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: reduce ? 0 : 1.0,
+          delay: reduce ? 0 : 0.05,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="flex flex-col items-center gap-5 text-center"
+      >
+        <span className="label-eyebrow eyebrow-draw">
+          Kezdjük egy gyors kérdéssel
+        </span>
+        <h1 className="text-display-xl sm:text-display-2xl font-display max-w-[26ch]">
+          Kinek keresel ma{" "}
+          <span className="serif-italic text-sage-700">segítséget</span>?
+        </h1>
+        <div className="divider-fade-soft divider-sweep mt-2 w-[140px]" />
+      </motion.div>
+
+      <div className="grid gap-5 sm:gap-6 lg:grid-cols-3">
+        {audienceOrder.map((slug, i) => (
+          <QuizCard key={slug} audience={audiences[slug]} index={i} />
+        ))}
+      </div>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: reduce ? 0 : 1.4,
+          delay: reduce ? 0 : 0.9,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="text-center text-sm text-ink-500"
+      >
+        <span className="serif-italic text-base text-ink-700">
+          Mert együtt könnyebb.
+        </span>
+      </motion.p>
+    </div>
+  );
+}
