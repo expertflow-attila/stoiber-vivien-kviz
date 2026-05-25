@@ -15,8 +15,8 @@ export function ArticleBlock({ articles }: { articles: Article[] }) {
         <div className="flex flex-col gap-3">
           <span className="label-eyebrow text-sage-700">Vivien írásai</span>
           <h2 className="text-display-lg font-display max-w-[24ch]">
-            Olvasmányok a{" "}
-            <span className="serif-italic text-sage-700">témáról</span>
+            Ami még{" "}
+            <span className="serif-italic text-sage-700">segíthet</span>
           </h2>
         </div>
 
