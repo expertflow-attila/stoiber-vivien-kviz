@@ -54,9 +54,9 @@ export default async function ResultPage({
         <Link
           href="/"
           className="hover-cta inline-flex items-center gap-2 text-sm text-ink-500 hover:text-sage-700"
-          aria-label="Vissza a kvízhez"
+          aria-label="Vissza a választáshoz"
         >
-          <span aria-hidden="true">←</span> Vissza a kvízhez
+          <span aria-hidden="true">←</span> Vissza a választáshoz
         </Link>
       </Container>
 
@@ -68,9 +68,7 @@ export default async function ResultPage({
         <ArticleBlock articles={articles} />
 
         <section className="py-section-sm flex flex-col items-start gap-4">
-          <span className="label-eyebrow text-sage-700">
-            Egy lépés a teljes oldalra
-          </span>
+          <span className="label-eyebrow text-sage-700">Tovább</span>
           <a
             href={audience.serviceUrl}
             className="hover-cta inline-flex items-center gap-3 rounded-[10px] bg-sage-700 px-7 py-3.5 text-base font-medium text-cream-50 hover:bg-sage-800"

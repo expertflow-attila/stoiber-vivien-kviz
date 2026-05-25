@@ -3,7 +3,7 @@ import { QuizBoard } from "@/components/quiz/QuizBoard";
 
 export default function QuizPage() {
   return (
-    <div className="premium-page py-section">
+    <div className="premium-page py-section" data-auto-reveal="false">
       <Container width="wide">
         <QuizBoard />
       </Container>

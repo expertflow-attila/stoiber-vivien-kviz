@@ -13,12 +13,10 @@ export function ArticleBlock({ articles }: { articles: Article[] }) {
     <section className="py-section-sm">
       <div className="flex flex-col gap-7">
         <div className="flex flex-col gap-3">
-          <span className="label-eyebrow text-sage-700">
-            Ha többet olvasnál
-          </span>
+          <span className="label-eyebrow text-sage-700">Vivien írásai</span>
           <h2 className="text-display-lg font-display max-w-[24ch]">
-            Vivien írásai{" "}
-            <span className="serif-italic text-sage-700">erről</span>
+            Olvasmányok a{" "}
+            <span className="serif-italic text-sage-700">témáról</span>
           </h2>
         </div>
 
@@ -52,7 +50,7 @@ export function ArticleBlock({ articles }: { articles: Article[] }) {
             href={`${VIVIEN_SITE}/megjelenesek`}
             className="hover-cta inline-flex items-center gap-2 text-sm font-medium text-sage-700 hover:text-sage-800"
           >
-            Mind a megjelenések →
+            Vivien összes megjelenése →
           </a>
         </div>
       </div>

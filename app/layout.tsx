@@ -27,11 +27,11 @@ const SITE_URL =
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Segítek eligazodni — Stoiber Vivien",
+    default: "Szolgáltatásaim — Stoiber Vivien",
     template: "%s | Stoiber Vivien",
   },
   description:
-    "Egy rövid kérdés, és megmutatom a számodra leghasznosabb anyagokat. Hozzátartozóknak, intézményeknek és cégeknek.",
+    "Válaszd ki a hozzád illő utat: hozzátartozói, intézményi vagy céges támogatás Stoiber Vivientől, a demenciáról érthetően.",
   keywords: [
     "demencia",
     "demenciaedukáció",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "hu_HU",
     url: SITE_URL,
-    title: "Segítek eligazodni — Stoiber Vivien",
+    title: "Szolgáltatásaim — Stoiber Vivien",
     description:
-      "Egy rövid kérdés, és megmutatom a számodra leghasznosabb anyagokat.",
+      "Válaszd ki a hozzád illő utat: hozzátartozóknak, intézményeknek és cégeknek.",
     siteName: "A demenciáról érthetően",
   },
   robots: {

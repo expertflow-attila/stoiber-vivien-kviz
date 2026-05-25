@@ -8,7 +8,10 @@ export function Footer() {
       <Container width="wide" as="div" className="py-10">
         <div className="flex flex-col gap-3 text-sm text-ink-500 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-display text-base">
-            Stoiber Vivien <span className="serif-italic text-sage-700">— a demenciáról érthetően</span>
+            Stoiber Vivien{" "}
+            <span className="serif-italic text-sage-700">
+              — a demenciáról érthetően
+            </span>
           </p>
           <nav className="flex flex-wrap gap-x-5 gap-y-1.5">
             <a

@@ -32,7 +32,7 @@ export const magnets: Record<string, Magnet> = {
   "03-tiz-jel-ami-nem-demencia": {
     slug: "03-tiz-jel-ami-nem-demencia",
     title: "Tíz jel, ami NEM feltétlenül demencia",
-    hook: "Sok család túl korán pánikol — itt a 10 leggyakoribb tévhit, amit érdemes előbb megnézni.",
+    hook: "Sok család túl korán riad meg — itt a tíz leggyakoribb tévhit, amit érdemes ismerned, mielőtt aggódnál.",
     readTime: "8 perc",
   },
   "04-tizenket-tudomanyos-szokas": {
@@ -44,13 +44,13 @@ export const magnets: Record<string, Magnet> = {
   "05-lathatatlan-terheles-hr": {
     slug: "05-lathatatlan-terheles-hr",
     title: "A láthatatlan terhelés — HR-eseknek és vezetőknek",
-    hook: "Mit nem mondanak el a beteg hozzátartozót gondozó munkavállalók, és hogyan ismerheted fel a jeleket.",
+    hook: "Mit nem mondanak el a hozzátartozóikat gondozó munkavállalók, és hogyan veheted észre időben a jeleket.",
     readTime: "9 perc",
   },
   "06-demencia-kommunikacio-kodex": {
     slug: "06-demencia-kommunikacio-kodex",
     title: "Demencia-kommunikáció kódex",
-    hook: "A 14 leggyakoribb nehéz helyzet — és a szakmai-emberi válasz mindegyikre, kártyázható formátumban.",
+    hook: "A 14 leggyakoribb nehéz helyzet — és szakmailag, emberileg jó válasz mindegyikre.",
     readTime: "16 perc",
   },
   "07-viselkedes-ami-nem-agresszio": {

@@ -5,9 +5,7 @@ export function MagnetBlock({ magnet }: { magnet: Magnet }) {
   return (
     <section className="py-section-sm">
       <div className="flex flex-col gap-7">
-        <span className="label-eyebrow text-sage-700">
-          Amit most rögtön hasznosnak találsz
-        </span>
+        <span className="label-eyebrow text-sage-700">Ajándék kalauz</span>
         <div className="card-paper editorial-card relative overflow-hidden border border-cream-200 p-7 sm:p-9">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
             {/* PDF icon — minimalista vonalas */}
@@ -46,7 +44,7 @@ export function MagnetBlock({ magnet }: { magnet: Magnet }) {
                   {magnet.hook}
                 </p>
                 <p className="text-xs uppercase tracking-[0.18em] text-ink-500">
-                  PDF · {magnet.readTime} olvasás · ingyenes
+                  PDF · {magnet.readTime} · ingyenes
                 </p>
               </div>
 

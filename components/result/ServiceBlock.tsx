@@ -5,9 +5,7 @@ export function ServiceBlock({ audience }: { audience: Audience }) {
   return (
     <section className="py-section-sm">
       <div className="flex flex-col gap-7">
-        <span className="label-eyebrow text-sage-700">
-          Számodra ez való
-        </span>
+        <span className="label-eyebrow text-sage-700">Számodra</span>
         <h2 className="text-display-xl font-display max-w-[20ch]">
           {audience.resultTitle}
           <span className="block sm:inline">

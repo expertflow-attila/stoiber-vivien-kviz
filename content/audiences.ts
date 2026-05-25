@@ -2,7 +2,7 @@
  * A 3 célcsoport, amit a kvíz szegmentál.
  * Single-source-of-truth a kvíz-app számára.
  *
- * Az `href` mindig a vivien-site (demenciarolerthetoen.hu) megfelelő
+ * Az `serviceUrl` mindig a vivien-site (demenciarolerthetoen.hu) megfelelő
  * szolgáltatási oldalára mutat — soha nem belső, mert ez a kvíz-app
  * csak elirányítja a látogatót oda.
  */
@@ -11,11 +11,11 @@ export type AudienceSlug = "hozzatartozo" | "intezmeny" | "ceg";
 
 export type Audience = {
   slug: AudienceSlug;
-  /** A kvíz oldal kártyáján megjelenő rövid címke (eyebrow felett) */
+  /** Eyebrow a kvíz kártya felett (kategória-cimke) */
   quizEyebrow: string;
-  /** A kvíz kártya nagy címe (Cormorant) */
+  /** A kvíz kártya nagy címe (Cormorant) — szolgáltatás neve */
   quizTitle: string;
-  /** A kvíz kártya rövid leírása alatta (Inter) */
+  /** Rövid Vivien-szemszögű leírás a kvíz kártyán */
   quizBody: string;
   /** Result page heading */
   resultTitle: string;
@@ -25,7 +25,7 @@ export type Audience = {
   resultIntro: string;
   /** A vivien-site szolgáltatási oldal teljes URL-je */
   serviceUrl: string;
-  /** Vivien-site service-page nevező a CTA gombon */
+  /** Service CTA gomb felirata */
   serviceCtaLabel: string;
 };
 
@@ -35,35 +35,35 @@ export const audiences: Record<AudienceSlug, Audience> = {
   hozzatartozo: {
     slug: "hozzatartozo",
     quizEyebrow: "Családoknak",
-    quizTitle: "Magamnak vagy a családomnak",
+    quizTitle: "Hozzátartozóknak",
     quizBody:
-      "Hozzátartozóként élem át a demenciát — közelről, nap mint nap.",
+      "Támogatás demenciában érintett családoknak a nehéz mindennapokhoz és döntésekhez.",
     resultTitle: "Hozzátartozóknak",
     resultItalic: "melléd állok",
     resultIntro:
-      "Támogatás és útmutatás a demenciában érintett családok mindennapjaihoz. Segítség megterhelő helyzetekben, nehéz döntésekben és azokban a dilemmákban, amelyekre senki nem készít fel előre.",
+      "Útmutatás és támogatás a demenciában érintett családok mindennapjaihoz. Segítség megterhelő helyzetekben, nehéz döntésekben és azokban a dilemmákban, amelyekre senki nem készít fel előre.",
     serviceUrl: `${VIVIEN_SITE}/szolgaltatasok/hozzatartozoknak`,
     serviceCtaLabel: "Tovább a hozzátartozói oldalra",
   },
   intezmeny: {
     slug: "intezmeny",
     quizEyebrow: "Szakembereknek",
-    quizTitle: "Szakmai ellátóként vagy intézményben",
+    quizTitle: "Intézményeknek",
     quizBody:
-      "Idősellátásban, kórházban vagy demenciagondozó környezetben dolgozom.",
+      "Szakmai támogatás demenciaellátásban dolgozó szakembereknek és intézményeknek.",
     resultTitle: "Intézményeknek",
     resultItalic: "közös ügyünk",
     resultIntro:
-      "Gyakorlati szemléletű előadások és szakmai támogatás demenciával élő emberekről gondoskodó szakemberek és intézmények számára — modern kutatásokra, emberközpontú szemléletre és svájci gyakorlatokra építve.",
+      "Gyakorlati szemléletű előadások és szakmai támogatás demenciával élő emberekről gondoskodó szakembereknek és intézményeknek — modern kutatásokra, emberközpontú szemléletre és svájci gyakorlatokra építve.",
     serviceUrl: `${VIVIEN_SITE}/szolgaltatasok/intezmenyeknek`,
     serviceCtaLabel: "Tovább az intézményi oldalra",
   },
   ceg: {
     slug: "ceg",
     quizEyebrow: "Vállalatoknak",
-    quizTitle: "Munkahelyként vagy vezetőként",
+    quizTitle: "Cégeknek",
     quizBody:
-      "Cégnél vagy HR-ben dolgozom, és a kollégáim agyi egészsége is fontos.",
+      "Előadások és workshopok az agyi egészségről, a kiégésről és a gondozó munkavállalókról.",
     resultTitle: "Cégeknek",
     resultItalic: "együtt könnyebb",
     resultIntro:
