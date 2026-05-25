@@ -8,12 +8,12 @@ export function QuizBoard() {
   const reduce = useReducedMotion();
 
   return (
-    <div className="flex flex-col gap-10 sm:gap-14" data-auto-reveal="false">
+    <div className="flex flex-col gap-12 sm:gap-16" data-auto-reveal="false">
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          duration: reduce ? 0 : 0.7,
+          duration: reduce ? 0 : 1.0,
           ease: [0.22, 1, 0.36, 1],
         }}
         className="flex flex-col items-center gap-5 text-center"
@@ -26,28 +26,26 @@ export function QuizBoard() {
         <div className="divider-fade-soft mt-2 w-[140px]" />
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: reduce ? 0 : 0.8,
-          delay: reduce ? 0 : 0.15,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+      <div
         className="grid gap-5 sm:gap-6 lg:grid-cols-3"
         data-auto-reveal="false"
       >
-        {audienceOrder.map((slug) => (
-          <QuizCard key={slug} audience={audiences[slug]} />
+        {audienceOrder.map((slug, i) => (
+          <QuizCard
+            key={slug}
+            audience={audiences[slug]}
+            index={i}
+            reduce={!!reduce}
+          />
         ))}
-      </motion.div>
+      </div>
 
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
-          duration: reduce ? 0 : 1.0,
-          delay: reduce ? 0 : 0.4,
+          duration: reduce ? 0 : 1.4,
+          delay: reduce ? 0 : 0.9,
           ease: [0.22, 1, 0.36, 1],
         }}
         className="text-center text-sm text-ink-500"
