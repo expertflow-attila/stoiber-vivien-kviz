@@ -20,7 +20,7 @@ export function QuizBoard() {
       >
         <span className="label-eyebrow">Szolgáltatásaim</span>
         <h1 className="text-display-xl sm:text-display-2xl font-display max-w-[26ch]">
-          Kinek keresek{" "}
+          Kinek keresel{" "}
           <span className="serif-italic text-sage-700">segítséget</span>?
         </h1>
         <div className="divider-fade-soft mt-2 w-[140px]" />
@@ -40,20 +40,6 @@ export function QuizBoard() {
         ))}
       </div>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: reduce ? 0 : 1.4,
-          delay: reduce ? 0 : 0.9,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        className="text-center text-sm text-ink-500"
-      >
-        <span className="serif-italic text-base text-ink-700">
-          Mert együtt könnyebb.
-        </span>
-      </motion.p>
     </div>
   );
 }
