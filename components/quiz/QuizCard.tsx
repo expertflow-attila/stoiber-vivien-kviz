@@ -73,25 +73,6 @@ export function QuizCard({
             "transform 620ms cubic-bezier(0.22, 1, 0.36, 1), border-color 860ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 1100ms cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       >
-        {/* lance accent — halvány levelecske */}
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 40 80"
-          className="absolute right-5 top-5 h-12 w-6 text-sage-500/40"
-        >
-          <path
-            d="M20 4 C 32 18, 32 42, 20 76 C 8 42, 8 18, 20 4 Z"
-            fill="currentColor"
-            opacity="0.55"
-          />
-          <path
-            d="M20 4 V 76"
-            stroke="currentColor"
-            strokeWidth="0.6"
-            opacity="0.4"
-          />
-        </svg>
-
         <span className="label-eyebrow text-sage-700">
           {audience.quizEyebrow}
         </span>
